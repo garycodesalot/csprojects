@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int matrix1[100][100];
+    int matrix2[100][100];
+    
+    int m1x, m1y;
+    int m2x , m2y;
+    
+    cout << "Please enter dimensions of matrix 1" << endl;;
+    cout <<"    size x: ";
+    cin >> m1x;
+    cout <<"    size y: ";
+    cin >> m1y;
+    
+    cout << "Please enter dimensions of matrix 2" << endl;
+    cout <<"    size x: ";
+    cin >> m2x;
+    cout <<"    size y: ";
+    cin >> m2y;
+    
+    if( m1x != m2x || m1y != m2y)
+    {
+        cout << "Invalid input, matricies are not the same dimensions. Ending Program...";
+        return 0;
+    }
+    
+    cout << "Initialize first " << m1x <<" x "<< m1y << " matrix" << endl;
+    for (int i = 0 ; i < m1x ; i++)
+    {
+        for (int j = 0 ; j < m1y ; j++)
+        {
+            cout << "row [" << i+1 << "] column [" << j+1 << "] : ";
+            cin >> matrix1[i][j];
+        }
+    }
+    
+    cout << "Initialize second " << m2x <<" x "<< m2y << " matrix" << endl;;
+    for (int i = 0 ; i < m2x ; i++)
+    {
+        for (int j = 0 ; j < m2y ; j++)
+        {
+            cout << "row [" << i+1 << "] column [" << j+1 << "] : ";
+            cin >> matrix2[i][j];
+        }
+    }
+    
+    for (int i = 0 ; i < m1x ; i++)
+    {
+        cout << endl;
+        for (int j = 0 ; j < m1y ; j++)
+        {
+            matrix1[i][j] -= matrix2[i][j];
+            cout << matrix1[i][j];
+        }
+    }
+    
+    return 0;
+}
